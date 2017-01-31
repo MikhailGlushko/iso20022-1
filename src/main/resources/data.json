@@ -1,0 +1,26 @@
+//http://data.ssb.no/api/v0/no/table/
+[
+  {"id":"al","type":"l","text":"Arbeid og lønn"},
+  {"id":"bf","type":"l","text":"Bank og finansmarked"},
+  {"id":"be","type":"l","text":"Befolkning"},
+  {"id":"bb","type":"l","text":"Bygg, bolig og eiendom"},
+  {"id":"ei","type":"l","text":"Energi og industri"},
+  {"id":"he","type":"l","text":"Helse"},
+  {"id":"if","type":"l","text":"Inntekt og forbruk"},
+  {"id":"in","type":"l","text":"Innvandring og innvandrere"},
+  {"id":"js","type":"l","text":"Jord, skog, jakt og fiskeri"},
+  {"id":"kf","type":"l","text":"Kultur og fritid"},
+  {"id":"nk","type":"l","text":"Nasjonalregnskap og konjunkturer"},
+  {"id":"nm","type":"l","text":"Natur og miljø"},
+  {"id":"os","type":"l","text":"Offentlig sektor"},
+  {"id":"pp","type":"l","text":"Priser og prisindekser"},
+  {"id":"sk","type":"l","text":"Sosiale forhold og kriminalitet"},
+  {"id":"sv","type":"l","text":"Svalbard"},
+  {"id":"ti","type":"l","text":"Teknologi og innovasjon"},
+  {"id":"tr","type":"l","text":"Transport og reiseliv"},
+  {"id":"ud","type":"l","text":"Utdanning"},
+  {"id":"ut","type":"l","text":"Utenriksøkonomi"},
+  {"id":"va","type":"l","text":"Valg"},
+  {"id":"vt","type":"l","text":"Varehandel og tjenesteyting"},
+  {"id":"vf","type":"l","text":"Virksomheter, foretak og regnskap"}
+]

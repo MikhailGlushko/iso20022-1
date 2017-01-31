@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.toregard</groupId>
+	<artifactId>iso20022</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>iso20022</name>
+	<description>iso20022 project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.3.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<camel.version>2.18.1</camel.version>
+		<springCloudConnectorsVersion>1.2.3.RELEASE</springCloudConnectorsVersion>
+	</properties>
+
+	<dependencies>
+		<!--<dependency>-->
+			<!--<groupId>ehf</groupId>-->
+			<!--<artifactId>ehfcomponent</artifactId>-->
+			<!--<version>1</version>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jms</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test-spring40</artifactId>
+			<version>2.17.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.10</version>
+		</dependency>
+
+		<!--Components -->
+		<!-- Ping CV-->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-ahc</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<!-- csv -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-csv</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+		<!-- Database -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-core</artifactId>
+			<version>${springCloudConnectorsVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-spring-service-connector</artifactId>
+			<version>${springCloudConnectorsVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
+			<version>${springCloudConnectorsVersion}</version>
+		</dependency>
+	</dependencies>
+	<!--<dependency>-->
+	<!--<groupId>io.pivotal.spring.cloud</groupId>-->
+	<!--<artifactId>spring-cloud-services-starter-circuit-breaker</artifactId>-->
+	<!--</dependency>-->
+	<!--<dependency>-->
+	<!--<groupId>io.pivotal.spring.cloud</groupId>-->
+	<!--<artifactId>spring-cloud-services-starter-config-client</artifactId>-->
+	<!--</dependency>-->
+	<!--<dependency>-->
+	<!--<groupId>io.pivotal.spring.cloud</groupId>-->
+	<!--<artifactId>spring-cloud-services-starter-service-registry</artifactId>-->
+	<!--</dependency>-->
+	<!--<dependencyManagement>-->
+		<!--<dependencies>-->
+			<!--<dependency>-->
+				<!--<groupId>io.pivotal.spring.cloud</groupId>-->
+				<!--<artifactId>spring-cloud-services-dependencies</artifactId>-->
+				<!--<version>1.3.1.RELEASE</version>-->
+				<!--<type>pom</type>-->
+				<!--<scope>import</scope>-->
+			<!--</dependency>-->
+			<!--<dependency>-->
+				<!--<groupId>org.springframework.cloud</groupId>-->
+				<!--<artifactId>spring-cloud-dependencies</artifactId>-->
+				<!--<version>Camden.SR3</version>-->
+				<!--<type>pom</type>-->
+				<!--<scope>import</scope>-->
+			<!--</dependency>-->
+		<!--</dependencies>-->
+	<!--</dependencyManagement>-->
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<!--https://docs.run.pivotal.io/buildpacks/java/build-tool-int.html-->
+				<groupId>org.cloudfoundry</groupId>
+				<artifactId>cf-maven-plugin</artifactId>
+				<version>1.1.2</version>
+				<configuration>
+					<username>x</username>
+					<password>x</password>
+					<target>http://api.run.pivotal.io</target>
+					<org>dragerot.net</org>
+					<space>development</space>
+					<appname>iso20022${version}</appname>
+					<urls>
+						<url>iso20022.cfapps.io</url>
+					</urls>
+					<path></path>
+					<memory>1000</memory>
+					<diskQuota>1000</diskQuota>
+					<instances>1</instances>
+					<env>
+						<navn>Tore Gard</navn>
+					</env>
+					<services>
+						<service>
+							<name>clearDB</name>
+							<label>ClearDB MySQL Database</label>
+							<provider>ClearDB MySQL Database</provider>
+							<version>n/a</version>
+							<plan>small_plan</plan>
+						</service>
+						<service>
+							<name>toregardMQ</name>
+							<label>CloudAMQP</label>
+							<provider>CloudAMQP</provider>
+							<version>n/a</version>
+							<plan>small_plan</plan>
+						</service>
+					</services>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
