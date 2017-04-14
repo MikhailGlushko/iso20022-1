@@ -1,7 +1,7 @@
 ---
 applications:
 - name: is20022
-  memory: 512
+  memory: 1024MB
   random-route: true
   path: target/iso20022-1.0.0.jar
 

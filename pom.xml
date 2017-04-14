@@ -141,6 +141,11 @@
 			<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
 			<version>${springCloudConnectorsVersion}</version>
 		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>no.vegvesen.nvdb</groupId>-->
+			<!--<artifactId>nvdbapi-client</artifactId>-->
+			<!--<version>1.0.0</version>-->
+		<!--</dependency>-->
 	</dependencies>
 	<!--<dependency>-->
 	<!--<groupId>io.pivotal.spring.cloud</groupId>-->
@@ -188,15 +193,15 @@
 					<username>x</username>
 					<password>x</password>
 					<target>http://api.run.pivotal.io</target>
-					<org>dragerot.net</org>
+					<org>caplabno</org>
 					<space>development</space>
 					<appname>iso20022${version}</appname>
 					<urls>
 						<url>iso20022.cfapps.io</url>
 					</urls>
 					<path></path>
-					<memory>1000</memory>
-					<diskQuota>1000</diskQuota>
+					<memory>1024</memory>
+					<diskQuota>1024</diskQuota>
 					<instances>1</instances>
 					<env>
 						<navn>Tore Gard</navn>
@@ -209,13 +214,13 @@
 							<version>n/a</version>
 							<plan>small_plan</plan>
 						</service>
-						<service>
-							<name>toregardMQ</name>
-							<label>CloudAMQP</label>
-							<provider>CloudAMQP</provider>
-							<version>n/a</version>
-							<plan>small_plan</plan>
-						</service>
+						<!--<service>-->
+							<!--<name>toregardMQ</name>-->
+							<!--<label>CloudAMQP</label>-->
+							<!--<provider>CloudAMQP</provider>-->
+							<!--<version>n/a</version>-->
+							<!--<plan>small_plan</plan>-->
+						<!--</service>-->
 					</services>
 				</configuration>
 			</plugin>
