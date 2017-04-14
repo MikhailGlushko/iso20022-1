@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="99.5" y="236.0">net.toregard.entities.Product</node>
+    <node x="102.5" y="79.0">net.toregard.entities.Order</node>
+    <node x="0.0" y="0.0">net.toregard.entities.Customer</node>
+    <node x="120.0" y="0.0">net.toregard.entities.Invoice</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="net.toregard.entities.Order" target="net.toregard.entities.Invoice">
+      <point x="0.0" y="-14.5" />
+      <point x="-21.5" y="14.5" />
+    </edge>
+    <edge source="net.toregard.entities.Order" target="net.toregard.entities.Customer">
+      <point x="-26.0" y="-14.5" />
+      <point x="115.5" y="54.0" />
+      <point x="50.0" y="54.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="net.toregard.entities.Invoice" target="net.toregard.entities.Order">
+      <point x="21.5" y="14.5" />
+      <point x="184.5" y="54.0" />
+      <point x="167.5" y="54.0" />
+      <point x="26.0" y="-14.5" />
+    </edge>
+    <edge source="net.toregard.entities.Product" target="net.toregard.entities.Order">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="105.0" y="89.0" />
+  <SelectedNodes>
+    <node>net.toregard.entities.Product</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

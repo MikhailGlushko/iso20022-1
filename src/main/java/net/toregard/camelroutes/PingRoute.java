@@ -12,7 +12,7 @@ import java.util.List;
  * Created by toanders on 05.01.2017.
  * http://henryk-konsek.blogspot.no/2014/10/using-apache-camel-with-spring-boot.html
  */
-@Component
+//@Component
 public class PingRoute extends RouteBuilder {
     Logger logger = Logger.getLogger(PingRoute.class);
 
@@ -23,17 +23,17 @@ public class PingRoute extends RouteBuilder {
 
             from("timer:foo?repeatCount=1")
                     .to("log:Starter Opp Ping Route");
+//
+//            //Caller periodisk min CV
+//            from("timer:pingcv?period={{CVPingLogTime}}").
+//                    to("direct:pingCV").
+//                    bean(Business.class,"save").
+//                    to("log:CV pinget lagret");
 
-            //Caller periodisk min CV
-            from("timer:pingcv?period={{CVPingLogTime}}").
-                    to("direct:pingCV").
-                    bean(Business.class,"save").
-                    to("log:CV pinget lagret");
-
-            from("direct:pingCV").
-                   to("ahc:{{CVUrl}}").
-                    bean(Business.class,"hallo").
-                    to("log:CV pinget");
+//            from("direct:pingCV").
+//                   to("ahc:{{CVUrl}}").
+//                    bean(Business.class,"hallo").
+//                    to("log:CV pinget");
 
 //        from("file://D:\\data\\tmp\\in\\in").
 //                unmarshal().csv().split(body()).
