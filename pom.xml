@@ -118,6 +118,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+			<version>LATEST</version>
 			<scope>compile</scope>
 		</dependency>
 		<!--<dependency>-->
@@ -195,7 +196,7 @@
 					<target>http://api.run.pivotal.io</target>
 					<org>caplabno</org>
 					<space>development</space>
-					<appname>iso20022${version}</appname>
+					<appname>iso20022${project.version}</appname>
 					<urls>
 						<url>iso20022.cfapps.io</url>
 					</urls>

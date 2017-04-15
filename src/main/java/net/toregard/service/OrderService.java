@@ -1,7 +1,6 @@
 package net.toregard.service;
 
-import net.toregard.entities.Item;
-import net.toregard.entities.Role;
+import net.toregard.entities.LineItem;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 
 public class OrderService {
 
-    public BigDecimal calcSumOrderItems(List<Item> items){
+    public BigDecimal calcSumOrderItems(List<LineItem> items){
         BigDecimal amounts=new BigDecimal(0);
 
         return amounts;

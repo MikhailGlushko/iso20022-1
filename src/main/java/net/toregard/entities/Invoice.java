@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "ORDER_INVOICE")
+@Entity(name = "INVOICE")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +19,7 @@ public class Invoice implements Serializable {
     @Id
     @Column(name = "INVOICE_ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long invoiceId;
+    private Long id;
 
     @Column(name = "AMOUNT_DUE", precision = 2)
     private double amountDue;
@@ -37,7 +37,7 @@ public class Invoice implements Serializable {
     @Column(name = "LAST_UPDATED_TIME")
     private Date updatedTime;
 
-//    @OneToOne(optional=false)
-//    @JoinColumn(name = "ORDER_ID")
-//    private Order order;
+    @OneToOne(optional=false)
+    @JoinColumn(name = "ORDER_ID")
+    private Order order;
 }

@@ -2,10 +2,12 @@ package net.toregard.service;
 
 import net.toregard.entities.Product;
 import net.toregard.persistence.ProductRepository;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,10 +17,12 @@ import java.time.LocalDateTime;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 //@RunWith(SpringRunner.class)
 //@SpringBootTest
+@RunWith(MockitoJUnitRunner.class)
 public class ProductServiceTest {
 
     @Mock
@@ -27,9 +31,15 @@ public class ProductServiceTest {
 
     @Before
     public void before(){
-        MockitoAnnotations.initMocks(this);
+        //MockitoAnnotations.initMocks(this);
         target = new ProductServiceImpl();
         target.setProductRepository(productRepository);
+    }
+
+    @After
+    public void after(){
+        MockitoAnnotations.initMocks(this);
+        target = null;
     }
 
     @Test
@@ -37,9 +47,9 @@ public class ProductServiceTest {
         LocalDateTime dateTime = LocalDateTime.now();
         Product product = Product.builder()
                 .price(100.0)
-                .prodDescription("ProductA")
-                .prodId(1L)
-                .prodName("ProductNameA")
+                .description("ProductA")
+                .id(1L)
+                .name("ProductNameA")
                 .updatedTime(dateTime).build();
 
         when(productRepository.saveAndFlush(Matchers.any())).thenReturn(product);
@@ -47,8 +57,5 @@ public class ProductServiceTest {
         Assert.assertNotNull(retrievedProduct);
         assertThat(retrievedProduct, is(equalTo(product)));
         assertThat(retrievedProduct.getUpdatedTime(), is(equalTo(dateTime)));
-
-
-
     }
 }

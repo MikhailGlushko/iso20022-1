@@ -1,17 +1,18 @@
 package net.toregard.entities;
 
 import lombok.*;
+import org.springframework.beans.BeanUtils;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Set;
 
 /**
  *
  * http://www.javaworld.com/article/2077817/java-se/understanding-jpa-part-1-the-object-oriented-paradigm-of-data-persistence.html
- *
+ * https://www.safaribooksonline.com/library/view/spring-data/9781449331863/ch04.html
  */
-
 
 @Entity(name = "ORDERS")
 @Builder
@@ -22,29 +23,30 @@ import java.util.Date;
 public class Order implements Serializable {
     private static final long serialVersionUID = -2470071466425087308L;
 
-    @Id
+    @Id //signifies the primary key
     @Column(name = "ORDER_ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long orderId;
+    private long id;
 
-    @Column(name = "TOTAL_PRICE", precision = 2)
-    private double totPrice;
-
-    @Column(name = "OREDER_DESC")
-    private String orderDesc;
-
-    @Column(name = "ORDER_DATE")
-    private Date orderDt;
-
-//    @OneToOne(optional=false,cascade=CascadeType.ALL,
-//            mappedBy="order",targetEntity=Invoice.class)
-//    private Invoice invoice;
-
-    @Version
-    @Column(name = "LAST_UPDATED_TIME")
-    private Date updatedTime;
-
-    @ManyToOne(optional=false)
-    @JoinColumn(name="CUST_ID")
+    @ManyToOne(optional = false)
     private Customer customer;
+
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    private Address shippingAddress;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "order_id")
+    private Set<LineItem> lineItems;
+
+    public Order(Customer customer,
+                 Address shippingAddress,
+                 Address billingAddress) {
+        Assert.notNull(customer,"Customer is null");
+       Assert.notNull(shippingAddress,"shippingAddress is null");
+        this.customer = customer;
+        //this.emailAddress=emailAddress;
+        this.shippingAddress = shippingAddress;
+//        if(billingAddress == null) this.billingAddress=null; else
+//            BeanUtils.copyProperties(billingAddress,this.billingAddress);
+    }
 }
