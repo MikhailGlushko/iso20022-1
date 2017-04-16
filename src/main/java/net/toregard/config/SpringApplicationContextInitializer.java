@@ -2,11 +2,6 @@ package net.toregard.config;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.cloud.Cloud;
-import org.springframework.cloud.CloudException;
-import org.springframework.cloud.CloudFactory;
-import org.springframework.cloud.service.ServiceInfo;
-import org.springframework.cloud.service.common.MysqlServiceInfo;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;

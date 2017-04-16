@@ -44,14 +44,15 @@ public class Iso20022Application extends SpringBootServletInitializer {
 		return new CommandLineRunner() {
 			@Override
 			public void run(String... arg0) throws Exception {
-				roleRepository.saveAndFlush(Role.builder().role("admin").build());
-				roleRepository.saveAndFlush(Role.builder().role("anybody").build());
-				roleRepository.saveAndFlush(Role.builder().role("loggedin").build());
-				Account aa =Account.builder().username("test").password("rest").build();
-				List<Role> roles = new ArrayList<Role>();
-				roles.add(roleRepository.findByRole("anybody"));
-				aa.setRoles(roles);
-				accountRepository.save(aa);
+//				roleRepository.saveAndFlush(Role.builder().role("admin").build());
+//				roleRepository.saveAndFlush(Role.builder().role("anybody").build());
+//				roleRepository.saveAndFlush(Role.builder().role("loggedin").build());
+//				Account aa =Account.builder().username("test").password("rest").build();
+//				List<Role> roles = new ArrayList<Role>();
+//				roles.add(roleRepository.findByRole("anybody"));
+//				aa.setRoles(roles);
+//				accountRepository.save(aa);
+
 //				List<Account> a =accountRepository.findAll();
 //				for(Account item : a){
 //					System.out.println(item);

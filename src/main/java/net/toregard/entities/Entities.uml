@@ -3,54 +3,59 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="144.25" y="0.0">net.toregard.entities.Product</node>
-    <node x="71.50000000000003" y="158.0">net.toregard.entities.Order</node>
-    <node x="0.0" y="79.0">net.toregard.entities.Customer</node>
-    <node x="0.0" y="232.0">net.toregard.entities.Invoice</node>
-    <node x="142.25" y="79.0">net.toregard.entities.LineItem</node>
-    <node x="34.25" y="0.0">net.toregard.entities.Address</node>
+    <node x="517.0" y="0.0">net.toregard.entities.Product</node>
+    <node x="0.0" y="44.0">net.toregard.entities.EmailAddress</node>
+    <node x="301.25" y="444.0">net.toregard.entities.Order</node>
+    <node x="-38.34586466165416" y="591.5714285714286">net.toregard.entities.OrderAdress</node>
+    <node x="37.75" y="233.0">net.toregard.entities.Customer</node>
+    <node x="271.25" y="633.0">net.toregard.entities.Invoice</node>
+    <node x="584.5" y="255.0">net.toregard.entities.LineItem</node>
+    <node x="236.0" y="22.0">net.toregard.entities.Address</node>
   </nodes>
   <notes />
   <edges>
     <edge source="net.toregard.entities.Order" target="net.toregard.entities.Customer">
-      <point x="-26.000000000000014" y="-14.5" />
-      <point x="84.50000000000001" y="133.0" />
-      <point x="50.0" y="133.0" />
-      <point x="0.0" y="14.5" />
+      <point x="-87.0" y="-69.5" />
+      <point x="344.75" y="419.0" />
+      <point x="178.25" y="419.0" />
+      <point x="0.0" y="80.5" />
     </edge>
     <edge source="net.toregard.entities.LineItem" target="net.toregard.entities.Product">
-      <point x="0.0" y="-14.5" />
-      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-58.5" />
+      <point x="0.0" y="91.5" />
+    </edge>
+    <edge source="net.toregard.entities.Invoice" target="net.toregard.entities.Order">
+      <point x="0.0" y="-102.5" />
+      <point x="0.0" y="69.5" />
     </edge>
     <edge source="net.toregard.entities.Order" target="net.toregard.entities.Address">
-      <point x="-1.4210854715202004E-14" y="-14.5" />
-      <point x="110.50000000000001" y="54.0" />
-      <point x="101.75" y="54.0" />
-      <point x="22.5" y="14.5" />
+      <point x="0.0" y="-69.5" />
+      <point x="65.25" y="69.5" />
+    </edge>
+    <edge source="net.toregard.entities.Customer" target="net.toregard.entities.EmailAddress">
+      <point x="-70.25" y="-80.5" />
+      <point x="0.0" y="47.5" />
     </edge>
     <edge source="net.toregard.entities.Customer" target="net.toregard.entities.Address">
-      <point x="0.0" y="-14.5" />
-      <point x="50.0" y="54.0" />
-      <point x="56.75" y="54.0" />
-      <point x="-22.5" y="14.5" />
+      <point x="70.25" y="-80.5" />
+      <point x="248.5" y="208.0" />
+      <point x="301.25" y="208.0" />
+      <point x="-65.25" y="69.5" />
     </edge>
     <edge source="net.toregard.entities.Order" target="net.toregard.entities.LineItem">
-      <point x="25.999999999999986" y="-14.5" />
-      <point x="136.5" y="133.0" />
-      <point x="189.25" y="133.0" />
-      <point x="0.0" y="14.5" />
+      <point x="87.0" y="-69.5" />
+      <point x="518.75" y="419.0" />
+      <point x="667.5" y="419.0" />
+      <point x="0.0" y="58.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="118.5" y="130.5" />
+  <settings layout="Hierarchic Group" zoom="0.7519607843137255" x="420.15995397008055" y="420.27617951668583" />
   <SelectedNodes>
-    <node>net.toregard.entities.Customer</node>
-    <node>net.toregard.entities.Invoice</node>
-    <node>net.toregard.entities.Product</node>
-    <node>net.toregard.entities.Order</node>
-    <node>net.toregard.entities.LineItem</node>
-    <node>net.toregard.entities.Address</node>
+    <node>net.toregard.entities.OrderAdress</node>
   </SelectedNodes>
-  <Categories />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
 </Diagram>

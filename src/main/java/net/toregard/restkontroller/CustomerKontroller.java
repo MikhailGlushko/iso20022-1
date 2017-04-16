@@ -70,8 +70,6 @@ public class CustomerKontroller {
         log.info("saved order");
         Order _order =orderRepository.saveAndFlush(order);
 
-        customerRepository.delete(1L);
-
         return  _order;
     }
 }
