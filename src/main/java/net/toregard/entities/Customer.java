@@ -38,7 +38,7 @@ public class Customer implements Serializable {
      * We use @JoinColumn  with the addresses property,
      which causes the persistence provider to add another column
      to the table backing the Address object. This additional
-     column will then be used to refer to the Customer to allow
+     column will then be used to refer to the OrderRequest to allow
      joining the tables. If we had left out the additional annotation(@JoinColumn),
      the persistence provider would have created a dedicated join table
      */

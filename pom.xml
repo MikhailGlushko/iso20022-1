@@ -8,7 +8,12 @@
 	<packaging>jar</packaging>
 	<name>iso20022</name>
 	<description>iso20022 project for Spring Boot</description>
-
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.2.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 	<profiles>
 		<profile>
 			<id>test</id>
@@ -21,31 +26,70 @@
 			<properties>
 				<activatedProperties>h2</activatedProperties>
 				<activeByDefault>true</activeByDefault>
+				<dbGroup>com.h2database</dbGroup>
+				<dbArtifact>h2</dbArtifact>
+				<dbVersion></dbVersion>
+				<dbScope>compile</dbScope>
+				<dbUrl>jdbc:h2:mem:toregardDB</dbUrl>
+				<dbUser>sa</dbUser>
+				<dbPassword></dbPassword>
+				<dbLocation>dev/db/migration/h2</dbLocation>
 			</properties>
 		</profile>
 		<profile>
-			<id>mysql</id>
+			<id>dev</id>
 			<properties>
-				<activatedProperties>mysql</activatedProperties>
+				<activatedProperties>dev</activatedProperties>
+				<dbGroup>mysql</dbGroup>
+				<dbArtifact>mysql-connector-java</dbArtifact>
+				<dbVersion></dbVersion>
+				<dbScope>runtime</dbScope>
+				<dbUrl>jdbc:mysql://localhost:3306/toregardDB</dbUrl>
+				<dbUser>root</dbUser>
+				<dbPassword>123456</dbPassword>
+				<dbLocation>dev/db/migration/MySQL</dbLocation>
 			</properties>
 		</profile>
 	</profiles>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<camel.version>2.18.3</camel.version>
+		<cxf.version>3.1.10</cxf.version>
 		<springCloudConnectorsVersion>1.2.3.RELEASE</springCloudConnectorsVersion>
 	</properties>
 
 	<dependencies>
+		<!--<dependency>-->
+			<!--<groupId>org.apache.cxf</groupId>-->
+			<!--<artifactId>cxf-spring-boot-starter-jaxws</artifactId>-->
+		<!--</dependency>-->
+		<!-- Apache CXF -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-javaconfig</artifactId>
@@ -133,18 +177,12 @@
 			<version>${camel.version}</version>
 		</dependency>
 
-		<!-- Database -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>LATEST</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.flywaydb</groupId>-->
+			<!--<artifactId>flyway-core</artifactId>-->
+			<!--<version>4.1.2</version>-->
+		<!--</dependency>-->
+
 
 		<!--<dependency>-->
 			<!--<groupId>no.vegvesen.nvdb</groupId>-->
@@ -164,6 +202,26 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>4.1.2</version>
+				<configuration>
+					<locations>${dbLocation}</locations>
+					<url>${dbUrl}</url>
+					<user>${dbUser}</user>
+					<password>${dbPassword}</password>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.h2database</groupId>
+						<artifactId>h2</artifactId>
+						<version>1.4.191</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
 	    </plugins>
 	</build>
 

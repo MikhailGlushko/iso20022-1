@@ -41,7 +41,7 @@ public class Order implements Serializable {
     public Order(Customer customer,
                  Address shippingAddress,
                  Address billingAddress) {
-        Assert.notNull(customer,"Customer is null");
+        Assert.notNull(customer,"OrderRequest is null");
        Assert.notNull(shippingAddress,"shippingAddress is null");
         this.customer = customer;
         //this.emailAddress=emailAddress;

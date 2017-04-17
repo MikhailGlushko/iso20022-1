@@ -1,3 +1,12 @@
+create table account
+(
+  id bigint not null auto_increment
+    primary key,
+  password varchar(255) null,
+  username varchar(255) null
+)
+;
+
 create table address
 (
   address_id bigint not null auto_increment
@@ -26,6 +35,15 @@ create table customer
 alter table address
   add constraint FK93c3js0e22ll1xlu21nvrhqgg
 foreign key (customer_id) references toregardDB.customer (customer_id)
+;
+
+create table cvping_log
+(
+  id bigint not null auto_increment
+    primary key,
+  date_time datetime null,
+  text varchar(255) null
+)
 ;
 
 create table invoice
@@ -104,6 +122,10 @@ create table product
 )
 ;
 
+INSERT INTO product ( REGULAR_PRICE,PROD_NAME, PROD_DESC, LAST_UPDATED_TIME) VALUES( 300,'ProductB3','pnavn3',CURRENT_TIMESTAMP());
+INSERT INTO product ( REGULAR_PRICE,PROD_NAME, PROD_DESC,LAST_UPDATED_TIME) VALUES( 400,'ProductB4','pnavn4',CURRENT_TIMESTAMP());
+INSERT INTO product ( REGULAR_PRICE,PROD_NAME, PROD_DESC,LAST_UPDATED_TIME) VALUES(500,'ProductB5','pnavn5',CURRENT_TIMESTAMP());
+
 alter table lineitem
   add constraint FKmx9gf6c9ndwcyxhnu42c4thch
 foreign key (product_product_id) references toregardDB.product (product_id)
@@ -117,6 +139,30 @@ create table product_attributes
   primary key (product_product_id, attributes_key),
   constraint FKcos1hpnm9gebk4gtpatnma2kd
   foreign key (product_product_id) references toregardDB.product (product_id)
+)
+;
+
+create table role
+(
+  id bigint not null auto_increment
+    primary key,
+  role varchar(255) null
+)
+;
+
+create table routes
+(
+  id bigint not null auto_increment
+    primary key,
+  agency_id varchar(255) null,
+  route_color varchar(255) null,
+  route_desc varchar(255) null,
+  route_id varchar(255) null,
+  route_long_name varchar(255) null,
+  route_short_name varchar(255) null,
+  route_text_color varchar(255) null,
+  route_type varchar(255) null,
+  route_url varchar(255) null
 )
 ;
 

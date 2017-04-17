@@ -20,18 +20,16 @@ import java.util.List;
 @Setter
 public class Account implements Serializable {
 
-    private static final long serialVersionUID = 8396870005651269970L;
+    private static final long serialVersionUID = -5328705119240207565L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private String id;
+    private Long id;
     private String username;
     private String password;
 
-    @OneToMany(mappedBy="account")
-    @OrderBy("name ASC")
-    private List<Role> roles;
-
-
+//    @OneToMany(mappedBy="account")
+//    @OrderBy("name ASC")
+//    private List<Role> roles;
 
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="OrderService"
+                  targetNamespace="http://toregard.net/orders"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:ns1="http://toregard.net/orders">
+    <wsdl:types>
+        <xs:schema elementFormDefault="unqualified" targetNamespace="http://toregard.net/orders" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://toregard.net/orders">
+            <xs:element name="createOrder" type="tns:createOrder"/>
+            <xs:element name="createOrderResponse" type="tns:createOrderResponse"/>
+            <xs:complexType name="createOrder">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="tns:OrderRequest"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderRequest">
+                <xs:sequence>
+                    <xs:element name="CustomerId" type="xs:long"/>
+                    <xs:element name="ItemId" type="xs:long"/>
+                    <xs:element name="Amount" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createOrderResponse">
+                <xs:sequence>
+                    <xs:element name="Success" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="createOrderResponse">
+        <wsdl:part element="ns1:createOrderResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="createOrder">
+        <wsdl:part element="ns1:createOrder" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="OrderService">
+        <wsdl:operation name="createOrder">
+            <wsdl:input message="ns1:createOrder" name="createOrder"/>
+            <wsdl:output message="ns1:createOrderResponse" name="createOrderResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

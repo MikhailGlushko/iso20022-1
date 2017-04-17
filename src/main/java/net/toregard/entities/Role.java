@@ -13,12 +13,13 @@ import java.io.Serializable;
 @Setter
 public class Role implements Serializable {
 
-    private static final long serialVersionUID = 4601956571293332206L;
+    private static final long serialVersionUID = 6354485062299828418L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne(targetEntity = Account.class, fetch = FetchType.LAZY)
-    private Account account;
+//    @ManyToOne(targetEntity = Account.class, fetch = FetchType.LAZY)
+//    private Account account;
     private String role;
 }
 
